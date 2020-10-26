@@ -23,32 +23,31 @@ public class Game {
 		this.determineWinner();
 	}
 	
-	public String setComputerPlayerToRandom() {
+	public void setComputerPlayerToRandom() {
 		String[] choices ={"rock", "paper", "scissors"};
 		
 		Random choice = new Random();
 		
 		int randomIndex = choice.nextInt(choices.length);
-		
-		return choices[randomIndex];
+		this.setComputerPlayer(choices[randomIndex]);
 	}
 	
-	public String determineWinner()
+	public void determineWinner()
 	{
 		String winner ="";
-		if (this.player1 == this.setComputerPlayerToRandom())
+		if (this.player1 == this.getComputerPlayer())
 		{
 			winner = "draw";
 		}
-		else if (this.player1.contains("rock") && this.setComputerPlayerToRandom().contentEquals("scissors"))
+		else if (this.player1.contains("rock") && this.getComputerPlayer().contentEquals("scissors"))
 		{
 			winner = "player";
 		}
-		else if (this.player1.contains("paper") && this.setComputerPlayerToRandom().contentEquals("rock"))
+		else if (this.player1.contains("paper") && this.getComputerPlayer().contentEquals("rock"))
 		{
 			winner = "player";
 		}
-		else if (this.player1.contains("scissors") && this.setComputerPlayerToRandom().contentEquals("paper"))
+		else if (this.player1.contains("scissors") && this.getComputerPlayer().contentEquals("paper"))
 		{
 			winner = "player";
 		}
@@ -58,6 +57,6 @@ public class Game {
 		}
 		
 		
-		return winner;
+		this.setWinner(winner);
 	}
 }
