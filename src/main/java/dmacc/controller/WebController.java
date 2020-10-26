@@ -10,7 +10,7 @@ import dmacc.beans.Game;
 @Controller
 public class WebController {
 	@GetMapping("/playagame")
-	public String playGame(@RequestParam(name="Choice", required=false) String theChoice, Model model) {
+	public String playGame(@RequestParam(name="choice", required=false) String theChoice, Model model) {
 		if(theChoice == null) {
 			return "index";
 		}
